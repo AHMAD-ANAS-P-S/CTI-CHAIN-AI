@@ -1,0 +1,21 @@
+# REPORT 1 — Phishing Email and PowerShell-Based Malware Delivery
+Title: Investigation of a Phishing Campaign Delivering a Malicious Payload
+
+Incident overview:
+An enterprise security team investigated a suspicious email received by user alicexawiayam. The email was sent by Ted_Lee@trendmicro.com and used the subject "[Emergency] Important Information". The message contained a link to https://www.bdofc1dltg.com/qisB002.zip.
+The recipient opened the email and downloaded an attachment identified in the investigation as sami@guartmeggy.onmicrosoft.com. The attachment was associated with the suspicious email and requires further examination to establish its exact file type.
+Endpoint telemetry recorded activity on host nrmda. Windows Explorer and PowerShell activity appeared during the investigation. A PowerShell process was recorded with the command line:
+C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -noI -Win ...
+The available evidence indicates that the process was associated with activity following the email interaction. The complete command line and its exact execution parameters were not recovered.
+Investigators also identified a registry-related artifact at:
+C:\Users\alicexawiayam\...\currentversion
+The artifact was associated with suspicious persistence-related activity. A scheduled-task-related command was recorded as:
+cmd /c c:\bscB02.pdf.lnk
+The investigation also identified the domain www.bdofc1dltg.com, a dropped file named a iasp.browser, and an executable path beginning with:
+C:\program files (x86)\internal explorer\acplcne.exe
+The executable was associated with downloaded-payload activity. The full command line, file hash, and execution result were not available.
+
+Investigation objective:
+Correlate the email, attachment, URL, host, PowerShell process, registry artifact, scheduled task, downloaded executable, and domain. Identify which relationships are directly supported by the report and which require further evidence.
+Expected graph entities include the sender, email, recipient, attachment, host, PowerShell process, registry artifact, scheduled task, URL, domain, dropped file, and executable.
+Do not assume that every artifact was executed successfully or that the domain's C2 role is independently confirmed.

@@ -1,0 +1,138 @@
+[
+  {
+    "id": "T1566.001",
+    "name": "Phishing: Spearphishing Attachment",
+    "tactic": "Initial Access",
+    "description": "Adversaries may send spearphishing emails with a malicious attachment in an attempt to gain access to victim systems.",
+    "url": "https://attack.mitre.org/techniques/T1566/001/",
+    "keywords": ["phishing", "suspicious email", "attachment", ".docm", ".zip", "unsolicited email", "spearphishing", "email received"]
+  },
+  {
+    "id": "T1566.002",
+    "name": "Phishing: Spearphishing Link",
+    "tactic": "Initial Access",
+    "description": "Adversaries may send spearphishing emails with a malicious link in an attempt to gain access to victim systems.",
+    "url": "https://attack.mitre.org/techniques/T1566/002/",
+    "keywords": ["link to", "contained a link", "phishing url", "portal link", "click link", "http link in email"]
+  },
+  {
+    "id": "T1190",
+    "name": "Exploit Public-Facing Application",
+    "tactic": "Initial Access",
+    "description": "Adversaries may attempt to take advantage of a weakness in an Internet-facing computer or program using software, bugs, glitches, or vulnerabilities.",
+    "url": "https://attack.mitre.org/techniques/T1190/",
+    "keywords": ["public-facing", "http requests", "/api/upload", "upload handler", "vulnerable", "http 500", "exploitation of a vulnerable"]
+  },
+  {
+    "id": "T1078",
+    "name": "Valid Accounts",
+    "tactic": "Defense Evasion, Persistence, Privilege Escalation, Initial Access",
+    "description": "Adversaries may obtain and abuse credentials of existing accounts as a means of gaining Initial Access, Persistence, Privilege Escalation, or Defense Evasion.",
+    "url": "https://attack.mitre.org/techniques/T1078/",
+    "keywords": ["successful login", "account", "svc_backup", "finance.user", "authentication attempts", "credential"]
+  },
+  {
+    "id": "T1110",
+    "name": "Brute Force",
+    "tactic": "Credential Access",
+    "description": "Adversaries may use brute force techniques to gain access to accounts when passwords are unknown or when password hashes are obtained.",
+    "url": "https://attack.mitre.org/techniques/T1110/",
+    "keywords": ["failed authentication", "repeated failed", "authentication attempts", "brute force", "login attempts"]
+  },
+  {
+    "id": "T1204.002",
+    "name": "User Execution: Malicious File",
+    "tactic": "Execution",
+    "description": "An adversary may rely upon a user opening a malicious file or attachment to achieve execution.",
+    "url": "https://attack.mitre.org/techniques/T1204/002/",
+    "keywords": ["opened the email", "downloaded an attachment", "launched under", "opening multiple documents", "opened attachment"]
+  },
+  {
+    "id": "T1059.001",
+    "name": "Command and Scripting Interpreter: PowerShell",
+    "tactic": "Execution",
+    "description": "Adversaries may abuse PowerShell commands and scripts for execution.",
+    "url": "https://attack.mitre.org/techniques/T1059/001/",
+    "keywords": ["powershell", "powershell.exe", "-noi -win", "powershell activity", "powershell process"]
+  },
+  {
+    "id": "T1059.005",
+    "name": "Command and Scripting Interpreter: Visual Basic",
+    "tactic": "Execution",
+    "description": "Adversaries may abuse Visual Basic (VB) based scripts for execution, using engines like wscript.exe or cscript.exe.",
+    "url": "https://attack.mitre.org/techniques/T1059/005/",
+    "keywords": ["wscript.exe", "cscript.exe", ".vbs", "visual basic", "invoice_update.vbs"]
+  },
+  {
+    "id": "T1547.001",
+    "name": "Boot or Logon Autostart Execution: Registry Run Keys / Startup Folder",
+    "tactic": "Persistence, Privilege Escalation",
+    "description": "Adversaries may achieve persistence by adding a program to run keys in the Registry or the startup folder.",
+    "url": "https://attack.mitre.org/techniques/T1547/001/",
+    "keywords": ["registry-related artifact", "currentversion", "run key", "registry artifact", "persistence-related activity"]
+  },
+  {
+    "id": "T1053.005",
+    "name": "Scheduled Task/Job: Scheduled Task",
+    "tactic": "Execution, Persistence, Privilege Escalation",
+    "description": "Adversaries may abuse the Windows Task Scheduler to perform task scheduling for initial or recurring execution of malicious code.",
+    "url": "https://attack.mitre.org/techniques/T1053/005/",
+    "keywords": ["scheduled-task-related", "scheduled task", "schtasks", "cmd /c c:\\bscb02.pdf.lnk"]
+  },
+  {
+    "id": "T1105",
+    "name": "Ingress Tool Transfer",
+    "tactic": "Command and Control",
+    "description": "Adversaries may transfer tools or other files from an external system into a compromised environment.",
+    "url": "https://attack.mitre.org/techniques/T1105/",
+    "keywords": ["downloaded file", "downloaded a file", "downloaded-payload", "downloaded an attachment", "payload.bin", "cache_update.jsp", "qisb002.zip"]
+  },
+  {
+    "id": "T1071.001",
+    "name": "Application Layer Protocol: Web Protocols",
+    "tactic": "Command and Control",
+    "description": "Adversaries may communicate using application layer protocols (HTTP/HTTPS) to avoid detection.",
+    "url": "https://attack.mitre.org/techniques/T1071/001/",
+    "keywords": ["http requests", "https://", "outbound connection", "c2 domain", "c2 server", "bdofc1dltg.com", "203.0.113.77", "198.51.100.42"]
+  },
+  {
+    "id": "T1071.004",
+    "name": "Application Layer Protocol: DNS",
+    "tactic": "Command and Control",
+    "description": "Adversaries may communicate using the Domain Name System (DNS) application layer protocol to avoid detection / resolution.",
+    "url": "https://attack.mitre.org/techniques/T1071/004/",
+    "keywords": ["dns query", "outbound dns", "resolves to", "domain query"]
+  },
+  {
+    "id": "T1486",
+    "name": "Data Encrypted for Impact",
+    "tactic": "Impact",
+    "description": "Adversaries may encrypt data on target systems to interrupt availability of system and network resources.",
+    "url": "https://attack.mitre.org/techniques/T1486/",
+    "keywords": [".locked extension", "ransom note", "read_files.txt", "ransomware", "encrypt", "suspicious file modification"]
+  },
+  {
+    "id": "T1490",
+    "name": "Inhibit System Recovery",
+    "tactic": "Impact",
+    "description": "Adversaries may delete or remove built-in data and turn off services designed to aid in the recovery of a corrupted system.",
+    "url": "https://attack.mitre.org/techniques/T1490/",
+    "keywords": ["vssadmin.exe", "delete shadow copies", "shadow copies", "vssadmin", "shadow copy"]
+  },
+  {
+    "id": "T1560.001",
+    "name": "Archive Collected Data: Archive via Utility",
+    "tactic": "Collection",
+    "description": "Adversaries may compress or encrypt data that is collected prior to exfiltration using utilities such as 7-Zip, WinRAR, or ZIP.",
+    "url": "https://attack.mitre.org/techniques/T1560/001/",
+    "keywords": ["backup_export.zip", "created an archive", "archive named", "backup directory", "compressed files"]
+  },
+  {
+    "id": "T1041",
+    "name": "Exfiltration Over C2 Channel",
+    "tactic": "Exfiltration",
+    "description": "Adversaries may steal data by exfiltrating it over an existing command and control channel.",
+    "url": "https://attack.mitre.org/techniques/T1041/",
+    "keywords": ["outbound traffic", "120 mb", "data transfer", "possible data transfer", "data left", "exfiltration"]
+  }
+]

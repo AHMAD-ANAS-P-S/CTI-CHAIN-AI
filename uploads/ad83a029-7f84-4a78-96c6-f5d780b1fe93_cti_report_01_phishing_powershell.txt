@@ -1,0 +1,60 @@
+CTI REPORT 01: PHISHING EMAIL AND POWERSHELL-BASED PAYLOAD DELIVERY
+Report type: Synthetic training/investigation report Purpose: CTI entity
+extraction and attack-chain reconstruction Note: This is a fictional
+scenario. Domains and indicators are illustrative and must not be
+treated as verified malicious infrastructure.
+
+1.  INCIDENT OVERVIEW An enterprise security team investigated a
+    suspicious email received by user alicexawiayam on host NRMDA. The
+    email sender was Ted_Lee@trendmicro.com and the subject was
+    “[Emergency] Important Information”. The message included the URL
+    https://www.bdofc1dltg.com/qisB002.zip.
+
+The recipient interacted with the message and an attachment-like
+artifact was recorded as sami@guartmeggy.onmicrosoft.com. The available
+evidence does not establish the exact file format of this artifact.
+
+2.  ENDPOINT OBSERVATIONS Endpoint telemetry associated the activity
+    with host NRMDA and the user alicexawiayam. Windows Explorer
+    activity was observed, followed by a PowerShell process. The
+    recorded command line was incomplete: C:.0.exe -noI -Win …
+
+The investigation identified a registry-related artifact described as:
+C:...
+
+A task-related command was recorded as: cmd /c c:02.pdf.lnk
+
+The available records do not establish whether the task executed
+successfully or whether the registry artifact was definitively used for
+persistence.
+
+3.  NETWORK AND FILE ARTIFACTS The domain www.bdofc1dltg.com was
+    associated with the investigation. A file described as “a
+    iasp.browser” was recorded as a dropped-file artifact. An executable
+    path beginning with the following string was also observed: C:files
+    (x86)explorer.exe
+
+The executable was associated in the source notes with
+downloaded-payload activity. Its complete command line, hash, and
+execution result were unavailable.
+
+4.  INVESTIGATIVE ASSESSMENT The available evidence supports
+    investigating relationships among the sender, email, recipient,
+    attachment-like artifact, host, PowerShell process, URL, domain,
+    registry artifact, task-related command, dropped file, and
+    executable. The domain’s role as command-and-control infrastructure
+    has not been independently confirmed.
+
+5.  KEY ENTITIES User: alicexawiayam Host: NRMDA Sender:
+    Ted_Lee@trendmicro.com Email subject: [Emergency] Important
+    Information Attachment-like artifact:
+    sami@guartmeggy.onmicrosoft.com URL:
+    https://www.bdofc1dltg.com/qisB002.zip Domain: www.bdofc1dltg.com
+    Process: powershell.exe Registry artifact: C:... Task-related
+    command: cmd /c c:02.pdf.lnk Dropped-file artifact: a iasp.browser
+    Executable path: C:files (x86)explorer.exe
+
+6.  LIMITATIONS The command line is truncated. No file hashes, verified
+    C2 IP address, confirmed malware family, or reliable event
+    timestamps are available. Do not infer successful execution or
+    confirmed persistence without additional evidence.

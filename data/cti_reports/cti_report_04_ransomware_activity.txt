@@ -1,0 +1,12 @@
+# REPORT 4 — Ransomware Preparation and Impact
+Title: Endpoint Investigation of Suspicious File Modification and Ransomware Activity
+
+An endpoint named FINANCE-PC-07 generated alerts after an executable named document_sync.exe appeared in a user-writable directory.
+The file was launched under the account finance.user. Endpoint telemetry recorded the process opening multiple documents within the finance department's working directory.
+A second process named vssadmin.exe was observed with a command line indicating an attempt to delete shadow copies. The telemetry does not establish whether the operation succeeded.
+Shortly afterward, multiple files received a .locked extension. A ransom note named READ_FILES.txt appeared in the same directory.
+Security investigators isolated the endpoint before completing a full forensic examination. The SHA-256 hash of document_sync.exe was unavailable, and the malware family was not confirmed.
+No evidence in the report establishes whether remote systems were affected, whether credentials were stolen, or whether data was exfiltrated before encryption.
+
+Investigation objective:
+Construct an evidence-backed chain connecting the host, user, executable, process activity, shadow-copy-related command, modified files, and ransom note. Treat ransomware attribution and successful shadow-copy deletion as unconfirmed.

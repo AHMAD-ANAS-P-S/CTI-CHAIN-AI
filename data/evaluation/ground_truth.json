@@ -1,0 +1,106 @@
+{
+  "cti_report_01_phishing_powershell.txt": {
+    "entities": [
+      {"entity_type": "USER", "value": "alicexawiayam"},
+      {"entity_type": "EMAIL_ADDRESS", "value": "Ted_Lee@trendmicro.com"},
+      {"entity_type": "EMAIL_SUBJECT", "value": "[Emergency] Important Information"},
+      {"entity_type": "URL", "value": "https://www.bdofc1dltg.com/qisB002.zip"},
+      {"entity_type": "FILE", "value": "sami@guartmeggy.onmicrosoft.com"},
+      {"entity_type": "HOST", "value": "nrmda"},
+      {"entity_type": "PROCESS", "value": "powershell.exe"},
+      {"entity_type": "COMMAND", "value": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe -noI -Win ..."},
+      {"entity_type": "REGISTRY_KEY", "value": "C:\\Users\\alicexawiayam\\...\\currentversion"},
+      {"entity_type": "SCHEDULED_TASK", "value": "cmd /c c:\\bscB02.pdf.lnk"},
+      {"entity_type": "DOMAIN", "value": "www.bdofc1dltg.com"},
+      {"entity_type": "DROPPED_FILE", "value": "a iasp.browser"},
+      {"entity_type": "FILE", "value": "C:\\program files (x86)\\internal explorer\\acplcne.exe"}
+    ],
+    "relationships": [
+      {"source": "Ted_Lee@trendmicro.com", "target": "alicexawiayam", "relationship_type": "SENT_TO"},
+      {"source": "Ted_Lee@trendmicro.com", "target": "[Emergency] Important Information", "relationship_type": "SENT_EMAIL"},
+      {"source": "[Emergency] Important Information", "target": "https://www.bdofc1dltg.com/qisB002.zip", "relationship_type": "CONTAINS_URL"},
+      {"source": "alicexawiayam", "target": "sami@guartmeggy.onmicrosoft.com", "relationship_type": "DOWNLOADED_FROM"},
+      {"source": "alicexawiayam", "target": "nrmda", "relationship_type": "ASSOCIATED_WITH"},
+      {"source": "nrmda", "target": "powershell.exe", "relationship_type": "SPAWNED_PROCESS"},
+      {"source": "powershell.exe", "target": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe -noI -Win ...", "relationship_type": "EXECUTED_BY"},
+      {"source": "powershell.exe", "target": "C:\\Users\\alicexawiayam\\...\\currentversion", "relationship_type": "MODIFIED_REGISTRY"},
+      {"source": "powershell.exe", "target": "cmd /c c:\\bscB02.pdf.lnk", "relationship_type": "CREATED_SCHEDULED_TASK"},
+      {"source": "powershell.exe", "target": "a iasp.browser", "relationship_type": "DROPPED_FILE"},
+      {"source": "https://www.bdofc1dltg.com/qisB002.zip", "target": "www.bdofc1dltg.com", "relationship_type": "RESOLVES_TO"}
+    ]
+  },
+  "cti_report_02_office_document.txt": {
+    "entities": [
+      {"entity_type": "FILE", "value": "Invoice_September.docm"},
+      {"entity_type": "URL", "value": "https://invoice-portal.example.com/Invoice_September.docm"},
+      {"entity_type": "PROCESS", "value": "WINWORD.EXE"},
+      {"entity_type": "PROCESS", "value": "wscript.exe"},
+      {"entity_type": "PROCESS", "value": "cscript.exe"},
+      {"entity_type": "FILE", "value": "invoice_update.vbs"},
+      {"entity_type": "URL", "value": "https://cdn-update.example.net/payload.bin"},
+      {"entity_type": "DROPPED_FILE", "value": "payload.bin"},
+      {"entity_type": "DOMAIN", "value": "cdn-update.example.net"},
+      {"entity_type": "DOMAIN", "value": "invoice-portal.example.com"}
+    ],
+    "relationships": [
+      {"source": "WINWORD.EXE", "target": "Invoice_September.docm", "relationship_type": "ASSOCIATED_WITH"},
+      {"source": "WINWORD.EXE", "target": "wscript.exe", "relationship_type": "SPAWNED_PROCESS"},
+      {"source": "wscript.exe", "target": "invoice_update.vbs", "relationship_type": "EXECUTED_BY"},
+      {"source": "invoice_update.vbs", "target": "https://cdn-update.example.net/payload.bin", "relationship_type": "CONTAINS_URL"},
+      {"source": "invoice_update.vbs", "target": "payload.bin", "relationship_type": "DROPPED_FILE"},
+      {"source": "https://cdn-update.example.net/payload.bin", "target": "cdn-update.example.net", "relationship_type": "RESOLVES_TO"}
+    ]
+  },
+  "cti_report_03_web_exploitation.txt": {
+    "entities": [
+      {"entity_type": "HOST", "value": "WEB-SRV-02"},
+      {"entity_type": "IP_ADDRESS", "value": "198.51.100.24"},
+      {"entity_type": "URL", "value": "/api/upload"},
+      {"entity_type": "DROPPED_FILE", "value": "cache_update.jsp"},
+      {"entity_type": "PROCESS", "value": "java.exe"},
+      {"entity_type": "IP_ADDRESS", "value": "203.0.113.77"}
+    ],
+    "relationships": [
+      {"source": "198.51.100.24", "target": "WEB-SRV-02", "relationship_type": "CONNECTED_TO"},
+      {"source": "198.51.100.24", "target": "/api/upload", "relationship_type": "EXPLOITED_VULNERABILITY"},
+      {"source": "WEB-SRV-02", "target": "cache_update.jsp", "relationship_type": "DROPPED_FILE"},
+      {"source": "WEB-SRV-02", "target": "java.exe", "relationship_type": "SPAWNED_PROCESS"},
+      {"source": "WEB-SRV-02", "target": "203.0.113.77", "relationship_type": "CONNECTED_TO"}
+    ]
+  },
+  "cti_report_04_ransomware_activity.txt": {
+    "entities": [
+      {"entity_type": "HOST", "value": "FINANCE-PC-07"},
+      {"entity_type": "FILE", "value": "document_sync.exe"},
+      {"entity_type": "USER", "value": "finance.user"},
+      {"entity_type": "PROCESS", "value": "document_sync.exe"},
+      {"entity_type": "PROCESS", "value": "vssadmin.exe"},
+      {"entity_type": "COMMAND", "value": "delete shadow copies"},
+      {"entity_type": "FILE", "value": "READ_FILES.txt"}
+    ],
+    "relationships": [
+      {"source": "FINANCE-PC-07", "target": "document_sync.exe", "relationship_type": "DROPPED_FILE"},
+      {"source": "finance.user", "target": "document_sync.exe", "relationship_type": "EXECUTED_BY"},
+      {"source": "document_sync.exe", "target": "vssadmin.exe", "relationship_type": "SPAWNED_PROCESS"},
+      {"source": "vssadmin.exe", "target": "delete shadow copies", "relationship_type": "EXECUTED_BY"},
+      {"source": "document_sync.exe", "target": "READ_FILES.txt", "relationship_type": "DROPPED_FILE"}
+    ]
+  },
+  "cti_report_05_remote_access.txt": {
+    "entities": [
+      {"entity_type": "HOST", "value": "APP-SRV-04"},
+      {"entity_type": "USER", "value": "svc_backup"},
+      {"entity_type": "IP_ADDRESS", "value": "192.0.2.44"},
+      {"entity_type": "PROCESS", "value": "powershell.exe"},
+      {"entity_type": "FILE", "value": "backup_export.zip"},
+      {"entity_type": "IP_ADDRESS", "value": "198.51.100.42"}
+    ],
+    "relationships": [
+      {"source": "192.0.2.44", "target": "APP-SRV-04", "relationship_type": "CONNECTED_TO"},
+      {"source": "svc_backup", "target": "APP-SRV-04", "relationship_type": "ASSOCIATED_WITH"},
+      {"source": "APP-SRV-04", "target": "powershell.exe", "relationship_type": "SPAWNED_PROCESS"},
+      {"source": "powershell.exe", "target": "backup_export.zip", "relationship_type": "DROPPED_FILE"},
+      {"source": "APP-SRV-04", "target": "198.51.100.42", "relationship_type": "CONNECTED_TO"}
+    ]
+  }
+}

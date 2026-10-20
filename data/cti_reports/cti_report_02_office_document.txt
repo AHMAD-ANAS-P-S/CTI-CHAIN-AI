@@ -1,0 +1,13 @@
+# REPORT 2 — Malicious Office Document and Script Execution
+Title: Suspicious Office Document Leading to Script-Based Execution
+
+A user received an unsolicited email containing an attachment named Invoice_September.docm. The email included the URL https://invoice-portal.example.com/Invoice_September.docm.
+Endpoint monitoring recorded the creation of WINWORD.EXE, followed by a child process named wscript.exe. A subsequent process named cscript.exe appeared in the same investigation window.
+A script file named invoice_update.vbs was discovered in a user-writable temporary directory. The script contained a reference to https://cdn-update.example.net/payload.bin.
+The endpoint later recorded a file named payload.bin in the temporary directory. Its SHA-256 hash was not recovered.
+An outbound DNS query for cdn-update.example.net was observed. The associated IP address was not available in the collected logs.
+The investigation did not establish whether the downloaded file was executed successfully, whether a persistence mechanism was created, or whether data left the organization.
+The domain names ending in .example.com and .example.net are reserved example domains used for this synthetic report.
+
+Investigation objective:
+Reconstruct the documented email-delivery, document-opening, script-process, URL-reference, file-creation, and DNS-observation relationships. Do not invent a C2 IP, malware family, registry key, or confirmed exfiltration event.

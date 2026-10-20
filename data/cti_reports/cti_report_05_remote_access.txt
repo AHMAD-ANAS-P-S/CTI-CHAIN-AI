@@ -1,0 +1,13 @@
+# REPORT 5 — Suspicious Remote Access and Possible Data Exfiltration
+Title: Investigation of Unusual Remote Access and Possible Data Transfer
+
+A security monitoring system detected repeated failed authentication attempts against APP-SRV-04, followed by a successful login associated with the account svc_backup.
+The source address was recorded as 192.0.2.44. The login occurred outside the account's usual maintenance window.
+Shortly after the successful login, endpoint monitoring recorded a process named powershell.exe on APP-SRV-04. The process accessed files in a backup directory and created an archive named backup_export.zip.
+Network telemetry recorded an outbound connection from APP-SRV-04 to 198.51.100.42. Approximately 120 MB of outbound traffic was observed during the relevant time interval.
+The logs do not contain the destination hostname, a confirmed transfer protocol, or packet-level evidence linking the archive to the outbound traffic.
+The account's legitimate usage history and the business purpose of the archive remain under investigation. No malware family or threat actor has been attributed.
+The IP addresses in this report are documentation-only addresses and do not represent real attacker infrastructure.
+
+Investigation objective:
+Reconstruct the authentication events, account, host, PowerShell activity, archive creation, and outbound network connection. Flag the potential relationship between archive creation and network transfer as an investigative hypothesis rather than confirmed exfiltration.

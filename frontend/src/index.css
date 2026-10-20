@@ -1,0 +1,109 @@
+@import "tailwindcss";
+@import "@xyflow/react/dist/style.css";
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #001314;
+  color: #E6FFFF;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  overflow-x: hidden;
+  selection-background-color: #00E5F0;
+  selection-color: #001314;
+}
+
+::selection {
+  background: #00E5F0;
+  color: #001314;
+}
+
+/* Custom cybersecurity network scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #001B1D;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #12494D;
+  border-radius: 3px;
+  border: 1px solid #087F88;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00AEB8;
+}
+
+/* React Flow Dark Cyber Network Customization */
+.react-flow__background {
+  background-color: transparent !important;
+}
+
+.react-flow__edge-path {
+  stroke: #087F88;
+  stroke-width: 2;
+  transition: stroke 0.2s ease, stroke-width 0.2s ease;
+}
+
+.react-flow__edge.selected .react-flow__edge-path {
+  stroke: #00E5F0 !important;
+  stroke-width: 2.5 !important;
+  filter: drop-shadow(0 0 6px rgba(0, 229, 240, 0.55)) !important;
+}
+
+.react-flow__controls {
+  background: rgba(0, 27, 29, 0.94) !important;
+  border: 1px solid #12494D !important;
+  border-radius: 10px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4) !important;
+  backdrop-filter: blur(8px) !important;
+}
+
+.react-flow__controls-button {
+  background: transparent !important;
+  border-bottom: 1px solid #12494D !important;
+  color: #9CBFC2 !important;
+  fill: #9CBFC2 !important;
+}
+
+.react-flow__controls-button:hover {
+  background: #002629 !important;
+  color: #00E5F0 !important;
+  fill: #00E5F0 !important;
+}
+
+.react-flow__minimap {
+  background-color: rgba(0, 19, 20, 0.9) !important;
+  border: 1px solid #12494D !important;
+  border-radius: 10px !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5) !important;
+  backdrop-filter: blur(8px) !important;
+}
+
+/* ---------- Attack-chain graph polish ---------- */
+@keyframes cti-ring-pulse {
+  0%   { transform: scale(1);   opacity: .55; }
+  70%  { transform: scale(1.32); opacity: 0; }
+  100% { transform: scale(1.32); opacity: 0; }
+}
+.cti-ring { animation: cti-ring-pulse 2.6s ease-out infinite; pointer-events: none; }
+.cti-node:hover .cti-ring { animation-duration: 1.2s; }
+
+@keyframes cti-stage-glow {
+  0%, 100% { box-shadow: 0 0 0 0 var(--sc); }
+  50%      { box-shadow: 0 0 14px 1px var(--sc); }
+}
+.cti-stage-active { animation: cti-stage-glow 3s ease-in-out infinite; }
+
+.react-flow__edge-path { transition: opacity .2s ease; }
+.react-flow__minimap { border-radius: 12px; overflow: hidden; }
+@media (prefers-reduced-motion: reduce) {
+  .cti-ring, .cti-stage-active { animation: none; }
+}
